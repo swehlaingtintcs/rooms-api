@@ -83,4 +83,38 @@ Run integration tests using Jest and Supertest:
 npm test
 ```
 
+--- 
+
+## Example Usage (curl) 
+All examples assume the server is running on `http://localhost:3000`
+### Get all rooms 
+```bash 
+curl -X GET http://localhost:3000/rooms
+```
+### Register a user 
+```bash 
+curl -X POST http://localhost:3000/auth/register -H "Content-Type: application/json"  -d '{"email": "swe@mail.com","password":"password1234"}'
+```
+### Login and receive JWT 
+```bash 
+curl -X POST http://localhost:3000/auth/login -H "Content-Type: application/json" -d '{"email":"swe@mail.com","password":"password1234"}' 
+```
+### Get current authenticated user 
+```bash
+curl -X GET http://localhost:3000/auth/me -H "Authorization: Bearer YOUR_JWT_TOKEN"
+```
+### Create a room 
+```bash 
+curl -X POST http://localhost:3000/rooms -H "Authorization: Bearer YOUR_JWT_TOKEN" -H "Content-Type: application/json" -d '{"title":"Lincoln Hall","price":1200}'
+```
+### Update a room 
+```bash
+curl -X PATCH http://localhost:3000/rooms/1 -H "Authorization: Bearer YOUR_JWT_TOKEN" -H "Content-Type: application/json" -d '{"price": 1350}'
+```
+### Delete a room
+```bash
+curl -X DELETE http://localhost:3000/rooms/1 -H "Authorization: Bearer YOUR_JWT_TOKEN"
+```
+
+
 
