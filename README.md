@@ -24,6 +24,41 @@ Built with Node.js, Express, SQLite, and JWT authentication with full request va
 - `tests/` – integration tests
 - `validators/` – request validation schemas
 
+```
+rooms_api/
+├── app.js                # Express app configuration
+├── server.js             # Server entry point
+├── package.json
+├── jest.config.js
+
+├── db/
+│   ├── database.js       # SQLite connection
+│   ├── usersRepo.js      # User queries
+│   └── roomsRepo.js      # Room queries
+
+├── routes/
+│   ├── auth.routes.js    # Auth routes (register, login, /me)
+│   └── rooms.routes.js   # Room CRUD routes
+
+├── middleware/
+│   ├── auth.js           # JWT authentication
+│   ├── validate.js       # Request validation
+│   ├── httpError.js      # HTTP error helper
+│   ├── errorHandler.js   # Central error handler
+│   └── notFound.js       # 404 handler
+
+├── validators/
+│   ├── auth.validators.js
+│   └── rooms.validators.js
+
+├── tests/
+│   ├── helpers/
+│   │   └── resetDb.js    # Test DB reset utility
+│   ├── auth.test.js
+│   └── rooms.test.js
+
+```
+
 ---
 
 ## Tech Stack 
